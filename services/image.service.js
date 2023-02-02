@@ -21,7 +21,7 @@ module.exports = {
                     default: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
                     custom: (value) => {
                         if (!isImage(value))
-                            throw new MoleculerError("url is not an image");
+                            throw new MoleculerError("url is not an image", 400, "BAD_REQUEST", { url: value });
                         
                         return value;
                     }
