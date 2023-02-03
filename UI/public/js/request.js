@@ -20,6 +20,7 @@ function formSubmit(event) {
     API_URL.searchParams.append("base64", inputs.toBase64.checked);
 
     console.log(API_URL);
+    output.div.classList.remove("is-hidden");
 }
 
 window.onload = () => {
@@ -35,4 +36,7 @@ window.onload = () => {
     // Get targets of output
     output["div"] = document.getElementById("result-div");
     output["code"] = document.getElementById("result-code");
+
+    // Add event to button that hides output
+    document.getElementById("result-hide").addEventListener("click", () => { output.div.classList.add("is-hidden"); });
 }
