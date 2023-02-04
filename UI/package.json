@@ -1,0 +1,13 @@
+{
+  "name": "image-resizing-ui",
+  "version": "0.1.0",
+  "description": "UI for image resizing API made with moleculerjs",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "http-server"
+  ],
+  "author": "Miguel Magueijo",
+  "license": "MIT"
+}
