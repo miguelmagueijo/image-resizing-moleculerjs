@@ -31,8 +31,8 @@ function main() {
                 await sendFile(res, path.join(__dirname, "public", "js", "request.js"), "text/js");
                 break;
             default:
-                res.statusCode = 404;
-                res.end();
+                res.writeHead(404, { "Content-Type": "text/html" })
+                res.end("<html><h1>404 - Not Found</h1></html>");
         }
 
     };
