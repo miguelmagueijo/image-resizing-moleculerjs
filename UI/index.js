@@ -3,7 +3,7 @@
 const http = require("http");
 const fs = require("fs").promises;
 const path = require("path");
-const host = process.env.UI_HOST || "localhost";
+const host = process.env.UI_HOST || "0.0.0.0";
 const port = process.env.UI_PORT || 8000;
 
 async function sendFile(res, filename, type) {
