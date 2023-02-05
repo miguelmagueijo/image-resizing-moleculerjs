@@ -9,7 +9,7 @@ services:
       - UI_HOST=${UI_HOST}
       - UI_PORT=${UI_PORT}
     ports:
-      -40000:${API_PORT}
+      - 40000:${API_PORT}
   
   ui:
     build:
@@ -19,4 +19,4 @@ services:
       - UI_HOST=${UI_HOST}
       - UI_PORT=${UI_PORT}
     ports:
-      -40001:${UI_PORT}
+      - 40001:${UI_PORT}
