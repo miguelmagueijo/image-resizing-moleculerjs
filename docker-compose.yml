@@ -15,8 +15,6 @@ services:
     build:
       context: ./UI
     image: image-resizing-ui
-    env_file:
-      - docker-compose.env
     environment:
       - UI_HOST=${UI_HOST}
       - UI_PORT=${UI_PORT}
