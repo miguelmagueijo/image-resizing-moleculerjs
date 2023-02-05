@@ -23,3 +23,8 @@ They support env vars, but they aren't read from .env file, you will need to set
 - UI: UI_PORT (default: 8080), UI_HOST (default: 0.0.0.0), API_PORT (default: undefinied/3000)
 
 **Reminder**- If you change API port or API host you need to change the URL_STRING inside [request.js](UI/public/js/request.js)
+
+## Improvements/To-Do
+- Show error messages on UI;
+- Support URLs that don't with file extension;
+- Join UI with API (API serves the HTML file)
