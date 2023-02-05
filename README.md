@@ -4,7 +4,6 @@ Small project to resize a given image from an URL. Result can be a Javascript Bu
 API built with moleculer-web and UI all custom made (with Bulma CSS and native HTTP package).
 <br>This project was a small challenge to test out moleculerjs REST API and to get used to Docker and how to create Docker images.
 ## **Run**
-___
 You can run the project in two ways:
 1. With Docker
 2. Without Docker
