@@ -12,7 +12,7 @@ module.exports = {
             whitelist: [
                 "image.resize"
             ],
-            cors: { origin: `http://${process.env.UI_HOST}:${process.env.UI_PORT}`, methods: ["GET"],  allowedHeaders: [], exposedHeaders: [], credentials: false, maxAge: 3600 },
+            cors: { origin: "*", methods: ["GET"],  allowedHeaders: [], exposedHeaders: [], credentials: false, maxAge: 3600 },
             aliases: {
                 "GET api/image": "image.resize"
             },
