@@ -27,53 +27,24 @@ module.exports = {
                     }
                 },
                 width: {
-                    type: "string",
+                    type: "number",
                     optional: true,
                     default: 400,
-                    custom: (value) => {
-                        const width = Number(value);
-
-                        if (isNaN(width))
-                            throw new MoleculerError("width param must be number", 400, "BAD_REQUEST", { width: value });
-
-                        if (width <= 0)
-                            throw new MoleculerError("width param must be greater than 0", 400, "BAD_REQUEST", { width: value });
-
-                        return width;
-                    }
+                    positive: true,
+                    convert: true
                 },
                 height: {
-                    type: "string",
+                    type: "number",
                     optional: true,
                     default: 200,
-                    custom: (value) => {
-                        const height = Number(value);
-
-                        if (isNaN(height))
-                            throw new MoleculerError("height param must be number", 400, "BAD_REQUEST", { height: value });
-
-                        if (height <= 0)
-                            throw new MoleculerError("height param must be greater than 0", 400, "BAD_REQUEST", { height: value });
-
-                        return height;
-                    }
+                    positive: true,
+                    convert: true
                 },
                 base64: {
-                    type: "string",
+                    type: "boolean",
                     optional: true,
                     default: false,
-                    custom: (value) => {
-                        if (typeof value === "boolean")
-                            return Boolean(value);
-
-                        if (value.toLowerCase() === "false")
-                            return false;
-                        
-                        if (value.toLowerCase() === "true")
-                            return true;
-                        
-                        throw new MoleculerError(`base64 param must be "true" or "false".`, 400, "BAD_REQUEST", { base64: value });
-                    }
+                    convert: true
                 }
             },
 			async handler(ctx) {
@@ -94,7 +65,8 @@ module.exports = {
                     if (toBase64)
                         return { image: resizedImg.toString("base64") };
                     
-                    return { image: resizedImg };
+                    ctx.meta.$responseType = "image/jpg";
+                    return resizedImg;
                 } catch (e) {
                     throw new MoleculerError("Something went wrong while resizing the image.", 500, "INTERNAL_ERROR", { e })
                 }
