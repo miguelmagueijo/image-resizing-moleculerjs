@@ -18,17 +18,39 @@ async function sendFile(res, filename, type) {
 }
 
 function main() {
+    const API_PORT = process.env.API_PORT;
+    const htmlPath = path.join(__dirname, "index.html")
+    const jsPath = path.join(__dirname, "public", "js", "request.js");
+    const cssPath = path.join(__dirname, "public", "css", "bulma.min.css");
+
+    if (isNaN(Number(API_PORT))) {
+        fs.readFile(jsPath, (err, data) => {
+            if (err) {
+                console.error(err);
+                throw new Error("Something went wrong while opening request.js.");
+            }
+
+            const finalFile = data.replace(/http:\/\/127.0.0.1:3000\/api\/image/g, `http://127.0.0.1:${API_PORT}/api/image`);
+
+            fs.writeFile(jsPath, finalFile, "utf8", (err) => {
+                if (err) {
+                    console.error(err);
+                    throw new Error("Something went wrong while saving request.js");
+                }
+            })
+        });
+    }
 
     const requestListener = async (req, res) => {
         switch(req.url) {
             case "/":
-                await sendFile(res, path.join(__dirname, "index.html"), "text/html");
+                await sendFile(res, htmlPath, "text/html");
                 break;
             case "/public/css/bulma.min.css":
-                await sendFile(res, path.join(__dirname, "public", "css", "bulma.min.css"), "text/css");
+                await sendFile(res, cssPath, "text/css");
                 break;
             case "/public/js/request.js":
-                await sendFile(res, path.join(__dirname, "public", "js", "request.js"), "text/javascript");
+                await sendFile(res, jsPath, "text/javascript");
                 break;
             default:
                 res.writeHead(404, { "Content-Type": "text/html" })
