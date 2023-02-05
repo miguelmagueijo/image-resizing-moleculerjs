@@ -23,7 +23,7 @@ function main() {
     const jsPath = path.join(__dirname, "public", "js", "request.js");
     const cssPath = path.join(__dirname, "public", "css", "bulma.min.css");
 
-    if (isNaN(Number(API_PORT))) {
+    if (!isNaN(Number(API_PORT))) {
         fs.readFile(jsPath, (err, data) => {
             if (err) {
                 console.error(err);
