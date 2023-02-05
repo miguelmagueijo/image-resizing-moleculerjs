@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-    nodeID: "image-test-node-100",
+    nodeID: "image-api-node",
     validator: {
 		type: "Fastest",
 		options: {

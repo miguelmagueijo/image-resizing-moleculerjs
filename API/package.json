@@ -1,6 +1,13 @@
 {
-  "name": "image-resizing-moleculerjs",
+  "name": "image-resizing-api",
   "version": "0.1.0",
+  "description": "API for image resizing with moleculerjs",
+  "keywords": [
+    "moleculer",
+    "REST API",
+    "sharp",
+    "image resizing"
+  ],
   "scripts": {
     "dev": "moleculer-runner -H  --config moleculer.config.js services"
   },
