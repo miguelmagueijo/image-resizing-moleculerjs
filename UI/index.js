@@ -28,7 +28,7 @@ function main() {
                 await sendFile(res, path.join(__dirname, "public", "css", "bulma.min.css"), "text/css");
                 break;
             case "/public/js/request.js":
-                await sendFile(res, path.join(__dirname, "public", "js", "request.js"), "text/js");
+                await sendFile(res, path.join(__dirname, "public", "js", "request.js"), "text/javascript");
                 break;
             default:
                 res.writeHead(404, { "Content-Type": "text/html" })
