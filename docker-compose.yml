@@ -7,7 +7,7 @@ services:
       - API_PORT=${API_PORT}
       - API_HOST=${API_HOST}
     ports:
-      - 40000:${API_PORT}
+      - ${EXPOSED_API_PORT}:${API_PORT}
   
   ui:
     build:
@@ -16,5 +16,6 @@ services:
     environment:
       - UI_HOST=${UI_HOST}
       - UI_PORT=${UI_PORT}
+      - API_PORT=${EXPOSED_API_PORT}
     ports:
-      - 40001:${UI_PORT}
+      - ${EXPOSED_UI_PORT}:${UI_PORT}

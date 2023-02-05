@@ -1,4 +1,4 @@
-// Port must be changed if you changed it in API
+// Port must be changed if you changed it in api.service.js
 const URL_STRING = "http://127.0.0.1:3000/api/image"
 
 const inputs = {};
